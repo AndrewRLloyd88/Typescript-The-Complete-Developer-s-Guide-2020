@@ -49,3 +49,27 @@ const throwError3 = (message: string): void => {
   throw new Error(message)
   }
 }
+
+const todaysWeather = {
+  date: new Date(),
+  weather: 'sunny'
+};
+
+//destructuring with annotations
+const logWeather = ({
+  date, 
+  weather} :{
+    date: Date, 
+    weather: string
+  }): void => {
+  console.log(date);
+  console.log(weather)
+}
+
+//ES 2015
+// const logWeather = ({date, weather}) => {
+//   console.log(date);
+//   console.log(weather)
+// }
+
+logWeather(todaysWeather)

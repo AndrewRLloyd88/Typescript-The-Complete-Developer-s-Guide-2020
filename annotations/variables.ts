@@ -8,7 +8,7 @@ let nothing: undefined = undefined;
 // built in objects
 let now: Date = new Date();
 
-// Array
+// numbers
 let colors: string[] = ['red', 'green', 'blue']
 
 let myNumbers :number[] = [0, 1, 2, 3]
@@ -49,5 +49,17 @@ let foundWord: boolean;
 for (let i=0; i < words.length; i++) {
   if(words[i] === 'green'){
     foundWord = true;
+  }
+}
+
+let usersFavoriteMedia;
+// 3) Variable whose type cannot be inferred correctly
+let numbers = [-10, -1, -12]
+// can assign a boolean or number to this variable
+let numberAboveZero: boolean | number = false;
+
+for (let i = 0; i < numbers.length; i++) {
+  if(numbers[i] > 0){
+  numberAboveZero = numbers[i];
   }
 }

@@ -26,3 +26,7 @@ importantDates.push('2020-10-10');
 importantDates.push(new Date());
 //neither a string or a date object === error
 // importantDates.push(200);
+
+//Tuples are very similar to arrays
+
+//Array like structure where each element represents some property of a record

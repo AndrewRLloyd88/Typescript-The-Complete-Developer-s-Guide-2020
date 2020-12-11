@@ -18,3 +18,11 @@ carMakers.push(2);
 carMakers.map((car: string): string => {
   return car.toUpperCase();
 });
+
+// Flexible types data objects and strings
+//initialize with only dates, typescript thinks array only holds dates
+const importantDates: (Date | string)[] = [new Date(), '2017-01-01'];
+importantDates.push('2020-10-10');
+importantDates.push(new Date());
+//neither a string or a date object === error
+// importantDates.push(200);

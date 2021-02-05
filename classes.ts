@@ -1,12 +1,6 @@
 class Vehicle {
-  //initialize a variable inside of a class
-  color: string;
-
-  //instantly executed right when we create the class
-  //or you can initialize it in the constructr
-  constructor(color: string) {
-    this.color = color;
-  }
+  //modifiers can be used on properties or fields too
+  constructor(public color: string) {}
 
   protected honk(): void {
     console.log('Honk Honk');

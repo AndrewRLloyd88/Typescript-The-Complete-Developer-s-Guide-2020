@@ -1,11 +1,20 @@
 class Vehicle {
+  //initialize a variable inside of a class
+  color: string;
+
+  //instantly executed right when we create the class
+  //or you can initialize it in the constructr
+  constructor(color: string) {
+    this.color = color;
+  }
+
   protected honk(): void {
     console.log('Honk Honk');
   }
 }
 //vehicle is the Super or parent class
-const vehicle = new Vehicle();
-vehicle.honk();
+const vehicle = new Vehicle('orange');
+console.log(vehicle.color);
 
 //overridden a method on the child class
 class Car extends Vehicle {
@@ -19,10 +28,9 @@ class Car extends Vehicle {
   }
 }
 
-const car = new Car();
+const car = new Car('silver');
 
 car.startDrivingProcess();
-car.honk();
 
 //modifiers public private and protected
 //restict access to different functions or variables

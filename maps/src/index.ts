@@ -4,9 +4,11 @@ import { CustomMap } from './CustomMap';
 
 const customMap = new CustomMap('map');
 
+//User implicitly satisfies the Mappable inerface
 const user = new User();
-customMap.addUserMarker(user);
+customMap.addMarker(user);
 
+//Company implicitly satisfies the Mappable inerface
 const company = new Company();
-customMap.addCompanyMarker(company);
+customMap.addMarker(company);
 // console.log(company);

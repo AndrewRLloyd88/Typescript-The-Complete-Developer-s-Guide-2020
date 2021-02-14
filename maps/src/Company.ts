@@ -1,12 +1,16 @@
 import faker from 'faker';
+import { Mappable } from './CustomMap';
 
-export class Company {
+//implements allows typescript to point us to the true source of the error
+export class Company implements Mappable {
   companyName: string;
   catchPhrase: string;
   location: {
     lat: number;
     lng: number;
   };
+
+  color: string = 'blue';
 
   constructor() {
     this.companyName = faker.company.companyName();

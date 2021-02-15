@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Sorter_1 = require("./Sorter");
 var NumbersCollection_1 = require("./NumbersCollection");
 var CharactersCollection_1 = require("./CharactersCollection");
+var LinkedList_1 = require("./LinkedList");
 var numbersCollection = new NumbersCollection_1.NumbersCollection([10, 3, -5, 0]);
 //numbersCollection satisfies Sortable in Sorter.ts
 var sorter = new Sorter_1.Sorter(numbersCollection);
@@ -12,3 +13,11 @@ var charactersCollection = new CharactersCollection_1.CharactersCollection('Xaay
 var charSorter = new Sorter_1.Sorter(charactersCollection);
 charSorter.sort();
 console.log(charactersCollection.data);
+var linkedList = new LinkedList_1.LinkedList();
+linkedList.add(500);
+linkedList.add(-10);
+linkedList.add(-3);
+linkedList.add(4);
+var linkedSorter = new Sorter_1.Sorter(linkedList);
+linkedSorter.sort();
+linkedList.print();

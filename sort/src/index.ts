@@ -8,6 +8,11 @@ class Sorter {
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
         //bad approach
+        //If we want to add additional things to be sorted
+        //We have to add them to our union
+        //We would then have to have a check for our new data type or structure
+        //We will have to add additional if statements
+        //may lead to 50 nested if statements
 
         //all of this only works if collection is number[]
         //if collection is an array of numbers

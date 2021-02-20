@@ -1,7 +1,5 @@
 import fs from 'fs';
 
-import { MatchResult } from './MatchResult';
-
 //T is a reference to a generic type
 export abstract class CsvFileReader<T> {
   data: T[] = [];

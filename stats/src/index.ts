@@ -10,6 +10,7 @@ const matchReader = new MatchReader(csvFileReader);
 matchReader.load();
 //.load allows us to reference matchReader.matches
 
+//object composition - main object delegates out behaviors to other objects
 let manUnitedWins = 0;
 
 for (let match of matchReader.matches) {

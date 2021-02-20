@@ -9,6 +9,7 @@ var csvFileReader = new CsvFileReader_1.CsvFileReader('football.csv');
 var matchReader = new MatchReader_1.MatchReader(csvFileReader);
 matchReader.load();
 //.load allows us to reference matchReader.matches
+//object composition - main object delegates out behaviors to other objects
 var manUnitedWins = 0;
 for (var _i = 0, _a = matchReader.matches; _i < _a.length; _i++) {
     var match = _a[_i];

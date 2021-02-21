@@ -51,3 +51,32 @@ function printAnything<T>(arr: T[]): void {
 //typescript can now figure out what T is
 //its helpful to add the type annotations in to catch errors
 printAnything<string>(['a', 'b', 'c']);
+
+// Generic Constraints
+
+class Car {
+  print() {
+    console.log('I am a car');
+  }
+}
+
+class House {
+  print() {
+    console.log('I am a house');
+  }
+}
+
+interface Printable {
+  print(): void;
+}
+
+//add on a constraint to type T to tell typescript a print method will be available
+//T extends is the constraint - It will have a method that returns printable
+function printHousesOrCars<T extends Printable>(arr: T[]): void {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].print();
+  }
+}
+
+printHousesOrCars<House>([new House(), new House()]);
+printHousesOrCars<Car>([new Car(), new Car()]);

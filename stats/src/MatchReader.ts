@@ -14,10 +14,12 @@ export class MatchReader {
   }
 
   matches: MatchData[] = [];
+  //provide a data reader upon creation
   constructor(public reader: DataReader) {}
 
   //take a look at the provided reader
   load(): void {
+    //delegated method
     this.reader.read();
     //transform the strings
     this.matches = this.reader.data.map(

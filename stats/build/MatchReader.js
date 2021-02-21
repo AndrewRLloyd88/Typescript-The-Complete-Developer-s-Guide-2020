@@ -4,6 +4,7 @@ exports.MatchReader = void 0;
 var utils_1 = require("./utils");
 var CsvFileReader_1 = require("./CsvFileReader");
 var MatchReader = /** @class */ (function () {
+    //provide a data reader upon creation
     function MatchReader(reader) {
         this.reader = reader;
         this.matches = [];
@@ -13,6 +14,7 @@ var MatchReader = /** @class */ (function () {
     };
     //take a look at the provided reader
     MatchReader.prototype.load = function () {
+        //delegated method
         this.reader.read();
         //transform the strings
         this.matches = this.reader.data.map(function (row) {

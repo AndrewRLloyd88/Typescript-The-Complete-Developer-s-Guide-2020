@@ -22,5 +22,5 @@ class ArrayOfAnything<T> {
     return this.collection[index];
   }
 }
-
-new ArrayOfAnything<string>(['a', 'b', 'c']);
+//type inference aorund generics
+const arr = new ArrayOfAnything(['a', 'b', 'c']);

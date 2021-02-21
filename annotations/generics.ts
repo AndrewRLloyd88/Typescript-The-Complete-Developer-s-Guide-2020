@@ -24,3 +24,30 @@ class ArrayOfAnything<T> {
 }
 //type inference aorund generics
 const arr = new ArrayOfAnything(['a', 'b', 'c']);
+
+//example of generics with functions
+
+function printStrings(arr: string[]): void {
+  for (let index = 0; index < arr.length; index++) {
+    console.log(arr[index]);
+  }
+}
+
+function printNumbers(arr: number[]): void {
+  for (let index = 0; index < arr.length; index++) {
+    console.log(arr[index]);
+  }
+}
+
+//we imagine the T is an extra argument
+//an array of whatever T is
+function printAnything<T>(arr: T[]): void {
+  for (let index = 0; index < arr.length; index++) {
+    console.log(arr[index]);
+  }
+}
+
+//<string[]> would suggest you are adding a 2d array
+//typescript can now figure out what T is
+//its helpful to add the type annotations in to catch errors
+printAnything<string>(['a', 'b', 'c']);

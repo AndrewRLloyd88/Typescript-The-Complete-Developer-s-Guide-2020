@@ -6,9 +6,10 @@ export class Attributes<T> {
   //Method type annotation <K extends keyof T> = generic constraint
   //(key: K) limits types K can be e.g. one of the keys of T
   //lookup the value of T(UserProps) at the index of K
-  get<K extends keyof T>(key: K): T[K] {
+  //turning into an arrow function correctly binds this of attributes
+  get = <K extends keyof T>(key: K): T[K] => {
     return this.data[key];
-  }
+  };
 
   set(update: T): void {
     Object.assign(this.data, update);

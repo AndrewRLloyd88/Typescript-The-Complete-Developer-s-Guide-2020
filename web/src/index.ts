@@ -1,15 +1,11 @@
 import { User } from './models/User';
+import axios from 'axios';
 
 const user = new User({ name: 'myname', age: 20 });
 
-user.on('change', () => {
-  console.log('change #1');
-});
-user.on('change', () => {
-  console.log('change #2');
-});
-user.on('delete', () => {
-  console.log('delete success');
+axios.post('http://localhost:3000/users', {
+  name: 'myname',
+  age: 20,
 });
 
-user.trigger('delete');
+axios.get('http://localhost:3000/users/1');

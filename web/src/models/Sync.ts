@@ -2,7 +2,7 @@ import axios, { AxiosPromise } from 'axios';
 
 //we can only use sync with some type that has an ID property as a number
 interface HasId {
-  id: number;
+  id?: number;
 }
 
 //generic class

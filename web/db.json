@@ -1,54 +1,14 @@
 {
   "users": [
     {
-      "name": "myname",
-      "age": 20,
-      "id": 1
+      "id": 1,
+      "name": "NEW NAME",
+      "age": 22
     },
     {
-      "name": "myname",
-      "age": 20,
+      "name": "newestname",
+      "age": 34,
       "id": 2
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 3
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 4
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 5
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 6
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 7
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 8
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 9
-    },
-    {
-      "name": "myname",
-      "age": 20,
-      "id": 10
     }
   ]
 }

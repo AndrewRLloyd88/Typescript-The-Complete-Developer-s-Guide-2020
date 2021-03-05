@@ -23,6 +23,18 @@ export class User {
     handlers.push(callback);
     this.events[eventName] = handlers;
   }
+
+  trigger(eventName: string): void {
+    const handlers = this.events[eventName]; //can be an array or undefined
+
+    if (!handlers || handlers.length === 0) {
+      return;
+    }
+
+    handlers.forEach((callback) => {
+      callback();
+    });
+  }
 }
 
 //assign some properties to user upon creation

@@ -1,5 +1,6 @@
 import { Eventing } from './Eventing';
 import { Sync } from './Sync';
+import { Attributes } from './Attributes';
 
 export interface UserProps {
   id?: number;
@@ -13,4 +14,10 @@ export class User {
   //we will always get a copy of eventing - we will probably never swap out eventing
   public events: Eventing = new Eventing();
   public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
+  public attributes: Attributes<UserProps>;
+
+  //initializing submodule attributes
+  constructor(attrs: UserProps) {
+    this.attributes = new Attributes<UserProps>(attrs);
+  }
 }

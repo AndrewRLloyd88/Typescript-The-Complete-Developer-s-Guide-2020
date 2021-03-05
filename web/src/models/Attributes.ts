@@ -1,4 +1,4 @@
-import { UserProps } from './User';
+// import { UserProps } from './User';
 
 export class Attributes<T> {
   constructor(private data: T) {}
@@ -17,12 +17,12 @@ export class Attributes<T> {
 
 //the keys of an object can be a type as well
 
-const attrs = new Attributes<UserProps>({
-  id: 5,
-  age: 20,
-  name: 'whatever',
-});
+// const attrs = new Attributes<UserProps>({
+//   id: 5,
+//   age: 20,
+//   name: 'whatever',
+// });
 
-const name = attrs.get('name');
-const age = attrs.get('age');
-const id = attrs.get('id');
+// const name = attrs.get('name');
+// const age = attrs.get('age');
+// const id = attrs.get('id');

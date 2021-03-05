@@ -3,7 +3,7 @@ interface UserProps {
   age?: number;
 }
 
-type Callback = () => {};
+type Callback = () => void;
 
 export class User {
   events: { [key: string]: Callback[] } = {};
@@ -17,7 +17,12 @@ export class User {
     Object.assign(this.data, update);
   }
 
-  on(eventName: string, callback: Callback) {}
+  on(eventName: string, callback: Callback): void {
+    //handlers is guaranteed to be an array
+    const handlers = this.events[eventName] || [];
+    handlers.push(callback);
+    this.events[eventName] = handlers;
+  }
 }
 
 //assign some properties to user upon creation

@@ -52,4 +52,17 @@ export class User {
       this.set(response.data);
     });
   }
+
+  //any time we call save we get all the properties and save it
+  save(): void {
+    this.sync
+      .save(this.attributes.getAll())
+      .then((response: AxiosResponse) => {
+        //any time we save successfully we call the save callback
+        this.trigger('save');
+      })
+      .catch(() => {
+        this.trigger('error');
+      });
+  }
 }

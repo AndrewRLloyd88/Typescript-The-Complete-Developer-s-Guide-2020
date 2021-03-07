@@ -24,6 +24,7 @@ export class User {
 
   //getter returning a reference of the on function not calling it
   //paranthesis here invoke the on method on Eventing not on right here!
+  //passthrough methods
   get on() {
     return this.events.on;
   }

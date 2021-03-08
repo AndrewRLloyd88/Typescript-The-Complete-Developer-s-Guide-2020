@@ -23,6 +23,7 @@ interface HasId {
 }
 
 //pass in a type T that specifies the data structure
+//this code is executed first before the shortened passthrough methods because they are initialized and assigned in the arguments of the constructor
 export class Model<T extends HasId> {
   constructor(
     private attributes: ModelAttributes<T>,
@@ -33,17 +34,21 @@ export class Model<T extends HasId> {
   //getter returning a reference of the on function not calling it
   //paranthesis here invoke the on method on Eventing not on right here!
   //passthrough methods
-  get on() {
-    return this.events.on;
-  }
+  // get on() {
+  //   return this.events.on;
+  // }
+  on = this.events.on;
 
-  get trigger() {
-    return this.events.trigger;
-  }
+  // get trigger() {
+  //   return this.events.trigger;
+  // }
+  trigger = this.events.trigger;
 
-  get get() {
-    return this.attributes.get;
-  }
+  // get get() {
+  //   return this.attributes.get;
+  // }
+
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);

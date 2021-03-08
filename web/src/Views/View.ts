@@ -10,11 +10,17 @@ import { Model } from '../models/Model';
 //K is the set of attributes that will exist inside of the model passed in
 //K is essentially the UserProps
 export abstract class View<T extends Model<K>, K> {
+  regions: { [key: string]: Element } = {};
   constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
   abstract template(): string;
+
+  regionsMap(): { [key: string]: string } {
+    return {};
+  }
+
   //eventsMap can be overwritten but is provided in this class by default
   eventsMap(): { [key: string]: () => void } {
     return {};
@@ -42,6 +48,24 @@ export abstract class View<T extends Model<K>, K> {
     }
   }
 
+  //structure of our regions object
+  //regions: {
+  //userShow: Element,
+  //userForm: Element
+  //}
+
+  mapRegions(fragment: DocumentFragment): void {
+    const regionsMap = this.regionsMap();
+    //find the element where we should insert this given view
+    for (let key in regionsMap) {
+      const selector = regionsMap[key];
+      const element = fragment.querySelector(selector);
+      if (element) {
+        this.regions[key] = element;
+      }
+    }
+  }
+
   render(): void {
     //clear HTML first
     this.parent.innerHTML = '';
@@ -49,6 +73,7 @@ export abstract class View<T extends Model<K>, K> {
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
     this.bindEvents(templateElement.content);
+    this.mapRegions(templateElement.content);
     //.content is of type DocumentFragment - holds HTML in memory before it gets inserted to the dom
     this.parent.append(templateElement.content);
   }

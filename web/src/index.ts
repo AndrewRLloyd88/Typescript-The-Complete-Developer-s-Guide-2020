@@ -1,14 +1,9 @@
-import { User } from './models/User';
+import { Collection } from './models/Collection';
 
-const user = User.buildUser({ id: 1 });
+const collection = new Collection('http://localhost:3000/users');
 
-//is trying to access user.data.name before binding this with => functions
-
-user.on('change', () => {
-  console.log(user);
+collection.on('change', () => {
+  console.log(collection);
 });
 
-user.fetch();
-
-//'this' rule of thumb in JS
-//'this' is going to be equal to whatever is to the left of our function call
+collection.fetch();

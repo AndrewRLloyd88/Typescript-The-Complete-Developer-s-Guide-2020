@@ -14,8 +14,11 @@ export abstract class View<T extends Model<K>, K> {
     this.bindModel();
   }
 
-  abstract eventsMap(): { [key: string]: () => void };
   abstract template(): string;
+  //eventsMap can be overwritten but is provided in this class by default
+  eventsMap(): { [key: string]: () => void } {
+    return {};
+  }
 
   //property on may not exist on type T
   bindModel(): void {

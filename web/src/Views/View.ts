@@ -11,12 +11,14 @@ import { Model } from '../models/Model';
 //K is essentially the UserProps
 export abstract class View<T extends Model<K>, K> {
   regions: { [key: string]: Element } = {};
+
   constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
   abstract template(): string;
 
+  //default implementation of regionsMap is overridden by userEdits implementation
   regionsMap(): { [key: string]: string } {
     return {};
   }

@@ -3,32 +3,7 @@
     {
       "id": 1,
       "name": "newer name",
-      "age": 35
-    },
-    {
-      "name": "newestname",
-      "age": 34,
-      "id": 2
-    },
-    {
-      "name": "newestname",
-      "age": 34,
-      "id": 3
-    },
-    {
-      "name": "newestname",
-      "age": 34,
-      "id": 4
-    },
-    {
-      "name": "newestname",
-      "age": 34,
-      "id": 5
-    },
-    {
-      "name": "newestname",
-      "age": 34,
-      "id": 6
+      "age": 22
     }
   ]
 }

@@ -12,7 +12,7 @@ export interface UserProps {
 const rootUrl = 'http://localhost:3000/users';
 
 export class User extends Model<UserProps> {
-  //preconfiguted version of the user
+  //preconfigured version of the user
   static buildUser(attrs: UserProps): User {
     return new User(
       new Attributes<UserProps>(attrs),

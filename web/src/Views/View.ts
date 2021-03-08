@@ -68,6 +68,8 @@ export abstract class View<T extends Model<K>, K> {
     }
   }
 
+  onRender(): void {}
+
   render(): void {
     //clear HTML first
     this.parent.innerHTML = '';
@@ -76,6 +78,9 @@ export abstract class View<T extends Model<K>, K> {
     templateElement.innerHTML = this.template();
     this.bindEvents(templateElement.content);
     this.mapRegions(templateElement.content);
+    //set up our view nesting
+    //event handler for render, called before our element is put into the DOM
+    this.onRender();
     //.content is of type DocumentFragment - holds HTML in memory before it gets inserted to the dom
     this.parent.append(templateElement.content);
   }

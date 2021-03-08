@@ -1,7 +1,16 @@
 import { User } from '../models/User';
 
+//any time models change event is called call our render()
 export class UserForm {
-  constructor(public parent: Element, public model: User) {}
+  constructor(public parent: Element, public model: User) {
+    this.bindModel();
+  }
+
+  bindModel(): void {
+    this.model.on('change', () => {
+      this.render();
+    });
+  }
 
   //relate different events to watch for to what events we want to run
   eventsMap(): { [key: string]: () => void } {
@@ -43,6 +52,9 @@ export class UserForm {
   }
 
   render(): void {
+    //clear HTML first
+    this.parent.innerHTML = '';
+    //execute the rest of our render
     const templateElement = document.createElement('template');
     templateElement.innerHTML = this.template();
     this.bindEvents(templateElement.content);

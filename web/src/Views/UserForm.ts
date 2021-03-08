@@ -1,8 +1,8 @@
-import { User } from '../models/User';
+import { User, UserProps } from '../models/User';
 import { View } from './View';
 
 //any time models change event is called call our render()
-export class UserForm extends View {
+export class UserForm extends View<User, UserProps> {
   //relate different events to watch for to what events we want to run
   eventsMap(): { [key: string]: () => void } {
     return {

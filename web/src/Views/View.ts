@@ -1,13 +1,23 @@
-import { User } from '../models/User';
+//an interface that specified what properties a model should have
+//this has no good reason may as well use Model
+// interface ModelForView {
+//   on(eventName: string, callback: () => void): void;
+// }
+import { Model } from '../models/Model';
 
-export abstract class View {
-  constructor(public parent: Element, public model: User) {
+//implement a generic constraint
+//whenever we specify view we will pass in two generic types
+//K is the set of attributes that will exist inside of the model passed in
+//K is essentially the UserProps
+export abstract class View<T extends Model<K>, K> {
+  constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
   abstract eventsMap(): { [key: string]: () => void };
   abstract template(): string;
 
+  //property on may not exist on type T
   bindModel(): void {
     this.model.on('change', () => {
       this.render();

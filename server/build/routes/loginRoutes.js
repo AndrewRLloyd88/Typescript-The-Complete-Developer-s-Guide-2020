@@ -28,6 +28,10 @@ router.get('/', function (req, res) {
         res.send("\n    <div>\n    <div>You are logged in</div>\n    <a href=\"/logout\">Log Out</a>\n    </div>\n    ");
     }
     else {
-        res.send("\n    <div>\n    <div>You are not logged in</div>\n    <a href=\"/login\">Log Out</a>\n    </div>\n    ");
+        res.send("\n    <div>\n    <div>You are not logged in</div>\n    <a href=\"/login\">Log In</a>\n    </div>\n    ");
     }
+});
+router.get('/logout', function (req, res) {
+    req.session = undefined;
+    res.redirect('/');
 });

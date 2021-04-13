@@ -31,9 +31,28 @@ router.post('/login', (req: RequestWithBody, res: Response) => {
     //mark person as logged in
   ) {
     req.session = { loggedIn: true }
+    res.redirect('/')
     //redirect to root route
   } else {
-    res.redirect('/')
+    res.send('Invalid Email or Password')
+  }
+})
+
+router.get('/', (req: Request, res: Response) => {
+  if (req.session && req.session.loggedIn) {
+    res.send(`
+    <div>
+    <div>You are logged in</div>
+    <a href="/logout">Log Out</a>
+    </div>
+    `)
+  } else {
+    res.send(`
+    <div>
+    <div>You are not logged in</div>
+    <a href="/login">Log Out</a>
+    </div>
+    `)
   }
 })
 

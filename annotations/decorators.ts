@@ -1,4 +1,6 @@
 class Boat {
+  //decorator on property cannot access the property on the instance
+  @testDecorator
   color: string = 'red'
 
   get formattedColor(): string {
@@ -11,6 +13,10 @@ class Boat {
     throw new Error()
     console.log('swish')
   }
+}
+
+function testDecorator(target: any, key: string) {
+  console.log(target, key)
 }
 
 //decorator factory that returns our decorator function
@@ -27,4 +33,4 @@ function logError(errorMessage: string) {
   }
 }
 
-new Boat().pilot()
+// new Boat().pilot()

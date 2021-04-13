@@ -5,14 +5,24 @@ class Boat {
     return `This boats color is ${this.color}`
   }
 
-  @testDecorator
+  //log error will automatically catch errors
+  @logError
   pilot(): void {
+    throw new Error()
     console.log('swish')
   }
 }
 
 //decorator
-function testDecorator(target: any, key: string): void {
-  console.log('Target', target)
-  console.log('Key', key)
+function logError(target: any, key: string, desc: PropertyDescriptor): void {
+  const method = desc.value
+  desc.value = function () {
+    try {
+      method()
+    } catch (e) {
+      console.log('oops, boat was sunk')
+    }
+  }
 }
+
+new Boat().pilot()

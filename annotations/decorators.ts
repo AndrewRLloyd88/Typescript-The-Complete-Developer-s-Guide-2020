@@ -1,22 +1,41 @@
+@classDecorator
 class Boat {
   //decorator on property cannot access the property on the instance
+  //properties
   @testDecorator
   color: string = 'red'
 
+  @testDecorator
+  //accessor
   get formattedColor(): string {
     return `This boats color is ${this.color}`
   }
 
   //log error will automatically catch errors
+  //method
   @logError('Oops boat was sunk in ocean!')
-  pilot(): void {
-    throw new Error()
-    console.log('swish')
+  pilot(
+    @parameterDecorator speed: string,
+    @parameterDecorator generateWake: boolean
+  ): void {
+    if (speed === 'fast') {
+      console.log('swish')
+    } else {
+      console.log('nothing')
+    }
   }
 }
 
+function classDecorator(constructor: typeof Boat) {
+  console.log(constructor)
+}
+
+function parameterDecorator(target: any, key: string, index: number) {
+  console.log(key, index)
+}
+
 function testDecorator(target: any, key: string) {
-  console.log(target, key)
+  console.log(key)
 }
 
 //decorator factory that returns our decorator function

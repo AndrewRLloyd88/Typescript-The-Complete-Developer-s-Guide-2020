@@ -37,4 +37,10 @@ class LoginController {
       res.send('Invalid Email or Password')
     }
   }
+
+  @get('/logout')
+  getLogout(req: Request, res: Response) {
+    req.session = undefined
+    res.redirect('/')
+  }
 }

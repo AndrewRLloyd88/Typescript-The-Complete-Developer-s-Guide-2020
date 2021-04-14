@@ -10,6 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var decorators_1 = require("./decorators");
+//useless middleware
+// function logger(req: Request, res: Response, next: NextFunction) {
+//   console.log('Request was made!!!')
+//   next()
+// }
 var LoginController = /** @class */ (function () {
     function LoginController() {
     }

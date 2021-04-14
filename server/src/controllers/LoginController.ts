@@ -1,12 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { get, controller } from './decorators'
 
-//useless middleware
-// function logger(req: Request, res: Response, next: NextFunction) {
-//   console.log('Request was made!!!')
-//   next()
-// }
-
 @controller('/auth')
 class LoginController {
   @get('/login')

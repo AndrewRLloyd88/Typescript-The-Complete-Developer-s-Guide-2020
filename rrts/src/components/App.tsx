@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { Todo, fetchTodos, deleteTodo } from '../actions'
 import { StoreState } from '../reducers'
 
+//redux thunk actionCreator is a function that returns a promise
+//redux has no way of knowing what fetchTodos is
 interface AppProps {
   todos: Todo[]
-  fetchTodos: typeof fetchTodos
+  fetchTodos: Function
   deleteTodo: typeof deleteTodo
 }
 
@@ -42,4 +44,5 @@ const mapStateToProps = ({ todos }: StoreState): { todos: Todo[] } => {
   return { todos }
 }
 
+//react redux does not know what a redux thunk action creator looks like
 export const App = connect(mapStateToProps, { fetchTodos, deleteTodo })(_App)
